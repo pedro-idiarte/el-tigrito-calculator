@@ -70,7 +70,7 @@ root = tk.Tk()
 root.title("El Trigrito")
 
 # Adicionar ícone de tigre
-root.iconbitmap("C:/Users/pedro/OneDrive/_Estudos/ElTigrito/images/tigre.ico")  # Substitua pelo caminho para o seu ícone de tigre
+root.iconbitmap("C:/Users/pedro/OneDrive/_Estudos/ElTigritoCalculator/images/tigre.ico")  
 
 frame_top = tk.Frame(root)
 frame_top.pack(pady=10)

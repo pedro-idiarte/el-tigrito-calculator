@@ -49,6 +49,16 @@ def retirar_valor():
     else:
         messagebox.showwarning("Atenção", "Digite um valor para retirar.")
 
+# Função para deletar todos os registros com confirmação
+def deletar_tudo():
+    resposta = messagebox.askyesno("Confirmação", "Tem certeza que deseja deletar todos os registros?")
+    if resposta:
+        global inseridos, retirados
+        inseridos, retirados = [], []
+        save_data(inseridos, retirados)
+        update_resultados()
+        messagebox.showinfo("Sucesso", "Todos os registros foram deletados.")
+
 # Função para atualizar os resultados na tela
 def update_resultados():
     lista_inseridos.delete(0, tk.END)
@@ -70,7 +80,7 @@ root = tk.Tk()
 root.title("El Trigrito")
 
 # Adicionar ícone de tigre
-root.iconbitmap("C:/Users/pedro/OneDrive/_Estudos/ElTigritoCalculator/images/tigre.ico")  
+root.iconbitmap(r"C:\Users\pedro\OneDrive\_Estudos\ElTigritoCalculator\images\tigre.ico")
 
 frame_top = tk.Frame(root)
 frame_top.pack(pady=10)
@@ -107,6 +117,9 @@ label_totais.pack(pady=5)
 
 label_soma = tk.Label(root, text="Soma: 0.00")
 label_soma.pack(pady=5)
+
+btn_deletar_tudo = tk.Button(root, text="Deletar Tudo", command=deletar_tudo)
+btn_deletar_tudo.pack(pady=5)
 
 # Inicializar os resultados na interface
 update_resultados()
